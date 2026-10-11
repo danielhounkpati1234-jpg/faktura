@@ -68,7 +68,7 @@ export default function ForgotPasswordPage() {
   return (
     <div className="w-full max-w-md animate-fade-in-up">
       <div className="text-center mb-8">
-        <div className="w-12 h-12 bg-brand-500 rounded-xl flex items-center justify-center mx-auto mb-4">
+        <Link href="/" className="w-12 h-12 bg-brand-500 rounded-xl flex items-center justify-center mx-auto mb-4 hover:bg-brand-600 transition-colors">
           <svg
             width="24"
             height="24"
@@ -83,7 +83,7 @@ export default function ForgotPasswordPage() {
             <path d="M2 17l10 5 10-5" />
             <path d="M2 12l10 5 10-5" />
           </svg>
-        </div>
+        </Link>
         <h1 className="text-2xl font-bold text-heading">Mot de passe oublié</h1>
         <p className="text-sm text-body mt-1">
           Entrez votre email pour recevoir un lien de réinitialisation

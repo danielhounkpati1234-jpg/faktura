@@ -172,11 +172,11 @@ export default function HelpPage() {
             <div className="space-y-3">
               <div>
                 <p className="text-xs text-muted mb-0.5">Email support</p>
-                <p className="text-sm text-brand-500 font-medium">support@faktura.io</p>
+                <a href="mailto:support@faktura.io" className="text-sm text-brand-500 font-medium hover:text-brand-600 transition-colors">support@faktura.io</a>
               </div>
               <div>
                 <p className="text-xs text-muted mb-0.5">Téléphone</p>
-                <p className="text-sm font-medium text-heading">+228 90 00 00 00</p>
+                <a href="tel:+22890001234" className="text-sm font-medium text-heading hover:text-brand-500 transition-colors">+228 90 00 12 34</a>
               </div>
               <div>
                 <p className="text-xs text-muted mb-0.5">Horaires</p>

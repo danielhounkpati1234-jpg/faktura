@@ -12,6 +12,22 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        terra: {
+          deep: "#132819",
+          dark: "#1E3F27",
+          forest: "#2A5A3B",
+          primary: "#367A4E",
+          sage: "#4A7C59",
+          light: "#EAF3ED",
+          surface: "#F9FAF8",
+          card: "#FFFFFF",
+          gold: "#E5A93B",
+          "gold-light": "#FEF3C7",
+          "gold-dark": "#B45309",
+          amber: "#D97706",
+          charcoal: "#1A211D",
+          muted: "#526056",
+        },
         gray: {
           50: "rgb(var(--gray-50) / <alpha-value>)",
           100: "rgb(var(--gray-100) / <alpha-value>)",
@@ -54,6 +70,8 @@ const config: Config = {
       fontFamily: {
         sans: ["var(--font-geist-sans)", "system-ui", "sans-serif"],
         mono: ["var(--font-geist-mono)", "monospace"],
+        jakarta: ["var(--font-jakarta)", "system-ui", "sans-serif"],
+        literata: ["var(--font-literata)", "Georgia", "serif"],
       },
       borderRadius: {
         card: "12px",
@@ -62,6 +80,10 @@ const config: Config = {
         card: "var(--shadow-card)",
         "card-hover": "var(--shadow-card-hover)",
         soft: "var(--shadow-soft)",
+        "terra-subtle": "0 10px 30px -5px rgba(26, 54, 34, 0.06), 0 4px 12px rgba(0, 0, 0, 0.03)",
+        "terra-float": "0 20px 40px -12px rgba(26, 54, 34, 0.12), 0 1px 3px rgba(0, 0, 0, 0.05)",
+        "terra-gold": "0 15px 35px -5px rgba(229, 169, 59, 0.3)",
+        "terra-deep": "0 25px 60px -15px rgba(19, 40, 25, 0.35)",
       },
     },
   },
