@@ -45,11 +45,7 @@ export default function SignupPage() {
 
     if (error) {
       recordFailure();
-      setError(
-        error.message === "Database error saving new user"
-          ? "Erreur lors de la création du compte. Veuillez réessayer."
-          : error.message
-      );
+      setError("Erreur lors de la création du compte. Veuillez réessayer.");
       setLoading(false);
       return;
     }

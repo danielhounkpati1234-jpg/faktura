@@ -26,7 +26,7 @@ export default function ForgotPasswordPage() {
 
     if (error) {
       recordFailure();
-      setError(error.message);
+      setError("Une erreur est survenue. Veuillez réessayer.");
       setLoading(false);
       return;
     }

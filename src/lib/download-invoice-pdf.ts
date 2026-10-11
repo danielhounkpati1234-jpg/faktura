@@ -2,6 +2,15 @@ import { Invoice } from "@/types";
 import { formatFCFA, formatDate } from "./utils";
 import { CompanyInfo, ProfileInfo, RegionalSettings } from "./app-store";
 
+function escapeHtml(str: string): string {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
 export function downloadInvoicePDF(
   invoice: Invoice,
   company: CompanyInfo,
@@ -30,7 +39,7 @@ export function downloadInvoicePDF(
     .map(
       (l) => `
       <tr>
-        <td style="padding:12px 16px;border-bottom:1px solid #f1f5f9;font-size:13px">${l.description || "Article"}</td>
+        <td style="padding:12px 16px;border-bottom:1px solid #f1f5f9;font-size:13px">${escapeHtml(l.description || "Article")}</td>
         <td style="padding:12px 16px;border-bottom:1px solid #f1f5f9;text-align:center;font-size:13px">${l.quantity}</td>
         <td style="padding:12px 16px;border-bottom:1px solid #f1f5f9;text-align:right;white-space:nowrap;font-size:13px">${formatFCFA(l.unitPrice)}</td>
         <td style="padding:12px 16px;border-bottom:1px solid #f1f5f9;text-align:right;font-weight:600;white-space:nowrap;font-size:13px">${formatFCFA(Math.round(l.quantity * l.unitPrice))}</td>
@@ -115,10 +124,10 @@ export function downloadInvoicePDF(
   <div class="header">
     <div class="header-left">
       <h1>FACTURE</h1>
-      <p class="invoice-num">N° ${invoice.number}</p>
+      <p class="invoice-num">N° ${escapeHtml(invoice.number)}</p>
     </div>
     <div class="header-right">
-      <div class="logo">${initials}</div>
+      <div class="logo">${escapeHtml(initials)}</div>
       <span class="status" style="background:${statusColor[invoice.status] || "#6B7280"}20;color:${statusColor[invoice.status] || "#6B7280"}">${statusLabel[invoice.status] || invoice.status}</span>
     </div>
   </div>
@@ -126,19 +135,19 @@ export function downloadInvoicePDF(
   <div class="parties">
     <div class="party">
       <p class="party-label">Émis par</p>
-      <p class="party-name">${emitterName}</p>
+      <p class="party-name">${escapeHtml(emitterName)}</p>
       <div class="party-detail">
-        ${emitterAddress ? `<p>${emitterAddress}</p>` : ""}
-        ${emitterEmail ? `<p>${emitterEmail}</p>` : ""}
-        ${emitterPhone ? `<p>${emitterPhone}</p>` : ""}
-        ${emitterNif ? `<p>NIF : ${emitterNif}</p>` : ""}
+        ${emitterAddress ? `<p>${escapeHtml(emitterAddress)}</p>` : ""}
+        ${emitterEmail ? `<p>${escapeHtml(emitterEmail)}</p>` : ""}
+        ${emitterPhone ? `<p>${escapeHtml(emitterPhone)}</p>` : ""}
+        ${emitterNif ? `<p>NIF : ${escapeHtml(emitterNif)}</p>` : ""}
       </div>
     </div>
     <div class="party">
       <p class="party-label">Facturé à</p>
-      <p class="party-name">${invoice.clientName || "—"}</p>
+      <p class="party-name">${escapeHtml(invoice.clientName || "—")}</p>
       <div class="party-detail">
-        ${invoice.clientEmail ? `<p>${invoice.clientEmail}</p>` : ""}
+        ${invoice.clientEmail ? `<p>${escapeHtml(invoice.clientEmail)}</p>` : ""}
       </div>
     </div>
   </div>
@@ -185,10 +194,10 @@ export function downloadInvoicePDF(
     </table>
   </div>
 
-  ${invoice.notes ? `<div class="notes"><p class="notes-label">Notes</p><p class="notes-text">${invoice.notes}</p></div>` : ""}
+  ${invoice.notes ? `<div class="notes"><p class="notes-label">Notes</p><p class="notes-text">${escapeHtml(invoice.notes)}</p></div>` : ""}
 
   <div class="footer">
-    ${company.legalText ? `<p>${company.legalText}</p>` : ""}
+    ${company.legalText ? `<p>${escapeHtml(company.legalText)}</p>` : ""}
     <p class="brand">Généré avec Faktura</p>
   </div>
 </div>

@@ -33,7 +33,7 @@ export default function LoginPage() {
       setError(
         error.message === "Invalid login credentials"
           ? "Email ou mot de passe incorrect"
-          : error.message
+          : "Une erreur est survenue. Veuillez réessayer."
       );
       setLoading(false);
       return;
